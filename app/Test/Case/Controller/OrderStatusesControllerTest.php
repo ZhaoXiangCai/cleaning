@@ -20,7 +20,10 @@ class OrderStatusesControllerTest extends ControllerTestCase {
 		'app.client_type',
 		'app.ownership',
 		'app.company',
-		'app.referrer',
+		'app.user',
+		'app.role',
+		'app.comment',
+		'app.comment_type',
 		'app.service',
 		'app.cleaning_orders_service',
 		'app.order_statuses_cleaning_order'

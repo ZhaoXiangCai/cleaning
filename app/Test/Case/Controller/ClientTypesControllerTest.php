@@ -14,7 +14,19 @@ class ClientTypesControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.client_type',
-		'app.client'
+		'app.client',
+		'app.ownership',
+		'app.cleaning_order',
+		'app.team',
+		'app.company',
+		'app.user',
+		'app.role',
+		'app.comment',
+		'app.comment_type',
+		'app.service',
+		'app.cleaning_orders_service',
+		'app.order_status',
+		'app.order_statuses_cleaning_order'
 	);
 
 /**

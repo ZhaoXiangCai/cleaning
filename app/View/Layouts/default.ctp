@@ -28,6 +28,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
+	    echo $this -> Html -> script(array('jquery-1.8.0.min', 'jquery-ui-1.8.23.custom.min'));
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');

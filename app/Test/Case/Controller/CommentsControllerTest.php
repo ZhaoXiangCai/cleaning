@@ -20,12 +20,12 @@ class CommentsControllerTest extends ControllerTestCase {
 		'app.client_type',
 		'app.ownership',
 		'app.company',
+		'app.user',
+		'app.role',
 		'app.service',
 		'app.cleaning_orders_service',
 		'app.order_status',
 		'app.order_statuses_cleaning_order',
-		'app.user',
-		'app.role',
 		'app.comment_type'
 	);
 

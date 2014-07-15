@@ -20,7 +20,10 @@ class ServicesControllerTest extends ControllerTestCase {
 		'app.client_type',
 		'app.ownership',
 		'app.company',
-		'app.referrer',
+		'app.user',
+		'app.role',
+		'app.comment',
+		'app.comment_type',
 		'app.cleaning_orders_service',
 		'app.order_status',
 		'app.order_statuses_cleaning_order'

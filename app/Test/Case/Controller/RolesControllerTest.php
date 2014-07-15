@@ -14,7 +14,19 @@ class RolesControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.role',
-		'app.user'
+		'app.user',
+		'app.comment',
+		'app.cleaning_order',
+		'app.team',
+		'app.client',
+		'app.client_type',
+		'app.ownership',
+		'app.company',
+		'app.service',
+		'app.cleaning_orders_service',
+		'app.order_status',
+		'app.order_statuses_cleaning_order',
+		'app.comment_type'
 	);
 
 /**

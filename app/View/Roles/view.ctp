@@ -30,9 +30,8 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('First Name'); ?></th>
-		<th><?php echo __('Given Name'); ?></th>
 		<th><?php echo __('Username'); ?></th>
+		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Password'); ?></th>
 		<th><?php echo __('Email'); ?></th>
 		<th><?php echo __('Mobile'); ?></th>
@@ -44,9 +43,8 @@
 	<?php foreach ($role['User'] as $user): ?>
 		<tr>
 			<td><?php echo $user['id']; ?></td>
-			<td><?php echo $user['first_name']; ?></td>
-			<td><?php echo $user['given_name']; ?></td>
 			<td><?php echo $user['username']; ?></td>
+			<td><?php echo $user['name']; ?></td>
 			<td><?php echo $user['password']; ?></td>
 			<td><?php echo $user['email']; ?></td>
 			<td><?php echo $user['mobile']; ?></td>

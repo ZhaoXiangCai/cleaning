@@ -55,9 +55,9 @@ class CleaningOrdersServicesController extends AppController {
 				$this->Session->setFlash(__('The cleaning orders service could not be saved. Please, try again.'));
 			}
 		}
-		$orders = $this->CleaningOrdersService->Order->find('list');
+		$cleaningOrders = $this->CleaningOrdersService->CleaningOrder->find('list');
 		$services = $this->CleaningOrdersService->Service->find('list');
-		$this->set(compact('orders', 'services'));
+		$this->set(compact('cleaningOrders', 'services'));
 	}
 
 /**
@@ -82,9 +82,9 @@ class CleaningOrdersServicesController extends AppController {
 			$options = array('conditions' => array('CleaningOrdersService.' . $this->CleaningOrdersService->primaryKey => $id));
 			$this->request->data = $this->CleaningOrdersService->find('first', $options);
 		}
-		$orders = $this->CleaningOrdersService->Order->find('list');
+		$cleaningOrders = $this->CleaningOrdersService->CleaningOrder->find('list');
 		$services = $this->CleaningOrdersService->Service->find('list');
-		$this->set(compact('orders', 'services'));
+		$this->set(compact('cleaningOrders', 'services'));
 	}
 
 /**

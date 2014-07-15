@@ -14,18 +14,17 @@ class CleaningOrdersServicesControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.cleaning_orders_service',
-		'app.order',
-		'app.service',
 		'app.cleaning_order',
 		'app.team',
 		'app.client',
 		'app.client_type',
 		'app.ownership',
 		'app.company',
-		'app.comment',
 		'app.user',
 		'app.role',
+		'app.comment',
 		'app.comment_type',
+		'app.service',
 		'app.order_status',
 		'app.order_statuses_cleaning_order'
 	);
