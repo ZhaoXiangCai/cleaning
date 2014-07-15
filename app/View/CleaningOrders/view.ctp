@@ -41,11 +41,6 @@
 			<?php echo h($cleaningOrder['CleaningOrder']['postcode_discount']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Up Sale'); ?></dt>
-		<dd>
-			<?php echo h($cleaningOrder['CleaningOrder']['up_sale']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Parking Type'); ?></dt>
 		<dd>
 			<?php echo h($cleaningOrder['CleaningOrder']['parking_type']); ?>

@@ -50,7 +50,7 @@ class ClientsController extends AppController {
 			$this->Client->create();
 			if ($this->Client->save($this->request->data)) {
 				$this->Session->setFlash(__('The client has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller'=>'cleaning_orders','action' => 'preadd'));
 			} else {
 				$this->Session->setFlash(__('The client could not be saved. Please, try again.'));
 			}

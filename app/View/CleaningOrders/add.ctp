@@ -7,17 +7,17 @@
 		echo $this->Form->input('appointment_time_to');
 		echo $this->Form->input('ordered_time');
 		echo $this->Form->input('booked_time');
-		echo $this->Form->input('order_price');
-		echo $this->Form->input('discount');
-		echo $this->Form->input('postcode_discount');
-		echo $this->Form->input('up_sale');
-		echo $this->Form->input('parking_type');
-		echo $this->Form->input('added_by');
+		echo $this->Form->input('order_price',array('default' => '0.00'));
+		echo $this->Form->input('discount',array('default' => '0.00'));
+		//echo $this->Form->input('postcode_discount');
+		echo $this->Form->input('parking_type',array('default' => 'Free Parking'));
+		echo $this->Form->input('added_by',array('label'=>'Added by: ', 'type' => 'select', 'options' => $users));
+        echo $this->Form->input('referrer',array('label'=>'Referrer: ', 'type' => 'select', 'options' => $users));
 		echo $this->Form->input('team_id');
-		echo $this->Form->input('client_id');
-		echo $this->Form->input('company_id');
-		echo $this->Form->input('last_invoice_sent');
-		echo $this->Form->input('referrer');
+		echo $this->Form->input('client_id',array('label'=>'Client: ', 'type' => 'select', 'options' => $clients));
+		echo $this->Form->input('company_id',array('label'=>'Company: ', 'type' => 'select', 'options' => $companies,'empty'=>''));
+		#echo $this->Form->input('last_invoice_sent',array('label'=>'Added_by: ', 'type' => 'select', 'options' => $users));
+		echo $this->Form->input('color_id');
 		echo $this->Form->input('Service');
 		echo $this->Form->input('OrderStatus');
 	?>

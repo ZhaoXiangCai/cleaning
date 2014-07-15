@@ -6,7 +6,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('address');
 		echo $this->Form->input('mobile');
-		echo $this->Form->input('vip');
+		echo $this->Form->input('vip',array('label'=>'VIP(Yes/No)','default'=>'No'));
 		echo $this->Form->input('postcode');
 		echo $this->Form->input('email');
 		echo $this->Form->input('phone');

@@ -11,7 +11,6 @@
 			<th><?php echo $this->Paginator->sort('order_price'); ?></th>
 			<th><?php echo $this->Paginator->sort('discount'); ?></th>
 			<th><?php echo $this->Paginator->sort('postcode_discount'); ?></th>
-			<th><?php echo $this->Paginator->sort('up_sale'); ?></th>
 			<th><?php echo $this->Paginator->sort('parking_type'); ?></th>
 			<th><?php echo $this->Paginator->sort('added_by'); ?></th>
 			<th><?php echo $this->Paginator->sort('team_id'); ?></th>
@@ -19,6 +18,7 @@
 			<th><?php echo $this->Paginator->sort('company_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('last_invoice_sent'); ?></th>
 			<th><?php echo $this->Paginator->sort('referrer'); ?></th>
+			<th><?php echo $this->Paginator->sort('color_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -33,7 +33,6 @@
 		<td><?php echo h($cleaningOrder['CleaningOrder']['order_price']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['discount']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['postcode_discount']); ?>&nbsp;</td>
-		<td><?php echo h($cleaningOrder['CleaningOrder']['up_sale']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['parking_type']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['added_by']); ?>&nbsp;</td>
 		<td>
@@ -47,6 +46,7 @@
 		</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['last_invoice_sent']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['referrer']); ?>&nbsp;</td>
+		<td><?php echo h($cleaningOrder['CleaningOrder']['color_id']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cleaningOrder['CleaningOrder']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cleaningOrder['CleaningOrder']['id'])); ?>
@@ -76,6 +76,8 @@
 		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Teams'), array('controller' => 'teams', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Team'), array('controller' => 'teams', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Colors'), array('controller' => 'colors', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('New Color'), array('controller' => 'colors', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Clients'), array('controller' => 'clients', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Client'), array('controller' => 'clients', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Companies'), array('controller' => 'companies', 'action' => 'index')); ?> </li>

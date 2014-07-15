@@ -86,7 +86,6 @@
 		<th><?php echo __('Order Price'); ?></th>
 		<th><?php echo __('Discount'); ?></th>
 		<th><?php echo __('Postcode Discount'); ?></th>
-		<th><?php echo __('Up Sale'); ?></th>
 		<th><?php echo __('Parking Type'); ?></th>
 		<th><?php echo __('Added By'); ?></th>
 		<th><?php echo __('Team Id'); ?></th>

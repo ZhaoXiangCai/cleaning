@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
  * @property Comment $Comment
  * @property Service $Service
  * @property OrderStatus $OrderStatus
+ * @property Added_by $Added_by
  */
 class CleaningOrder extends AppModel {
 
@@ -75,6 +76,13 @@ class CleaningOrder extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Color' => array(
+            'className' => 'Color',
+            'foreignKey' => 'color_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
 		'Client' => array(
 			'className' => 'Client',
 			'foreignKey' => 'client_id',
@@ -88,7 +96,28 @@ class CleaningOrder extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+		'Added_by' => array(
+            'className' => 'User',
+            'foreignKey' => 'added_by',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
+        'Last_Invoice' => array(
+            'className' => 'User',
+            'foreignKey' => 'last_invoice_sent',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
+        'Referrer' => array(
+            'className' => 'User',
+            'foreignKey' => 'referrer',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        )
 	);
 
 /**

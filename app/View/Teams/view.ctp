@@ -57,14 +57,13 @@
 		<th><?php echo __('Order Price'); ?></th>
 		<th><?php echo __('Discount'); ?></th>
 		<th><?php echo __('Postcode Discount'); ?></th>
-		<th><?php echo __('Up Sale'); ?></th>
 		<th><?php echo __('Parking Type'); ?></th>
 		<th><?php echo __('Added By'); ?></th>
 		<th><?php echo __('Team Id'); ?></th>
 		<th><?php echo __('Client Id'); ?></th>
 		<th><?php echo __('Company Id'); ?></th>
 		<th><?php echo __('Last Invoice Sent'); ?></th>
-		<th><?php echo __('Referrer Id'); ?></th>
+		<th><?php echo __('Referrer'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($team['CleaningOrder'] as $cleaningOrder): ?>
@@ -77,14 +76,13 @@
 			<td><?php echo $cleaningOrder['order_price']; ?></td>
 			<td><?php echo $cleaningOrder['discount']; ?></td>
 			<td><?php echo $cleaningOrder['postcode_discount']; ?></td>
-			<td><?php echo $cleaningOrder['up_sale']; ?></td>
 			<td><?php echo $cleaningOrder['parking_type']; ?></td>
 			<td><?php echo $cleaningOrder['added_by']; ?></td>
 			<td><?php echo $cleaningOrder['team_id']; ?></td>
 			<td><?php echo $cleaningOrder['client_id']; ?></td>
 			<td><?php echo $cleaningOrder['company_id']; ?></td>
 			<td><?php echo $cleaningOrder['last_invoice_sent']; ?></td>
-			<td><?php echo $cleaningOrder['referrer_id']; ?></td>
+			<td><?php echo $cleaningOrder['referrer']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'cleaning_orders', 'action' => 'view', $cleaningOrder['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'cleaning_orders', 'action' => 'edit', $cleaningOrder['id'])); ?>
