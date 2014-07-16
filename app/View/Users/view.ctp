@@ -68,7 +68,7 @@
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Content'); ?></th>
-		<th><?php echo __('Timestamp'); ?></th>
+		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Cleaning Order Id'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Comment Type Id'); ?></th>
@@ -78,7 +78,7 @@
 		<tr>
 			<td><?php echo $comment['id']; ?></td>
 			<td><?php echo $comment['content']; ?></td>
-			<td><?php echo $comment['timestamp']; ?></td>
+			<td><?php echo $comment['created']; ?></td>
 			<td><?php echo $comment['cleaning_order_id']; ?></td>
 			<td><?php echo $comment['user_id']; ?></td>
 			<td><?php echo $comment['comment_type_id']; ?></td>

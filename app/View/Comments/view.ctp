@@ -11,9 +11,9 @@
 			<?php echo h($comment['Comment']['content']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Timestamp'); ?></dt>
+		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($comment['Comment']['timestamp']); ?>
+			<?php echo h($comment['Comment']['created']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Cleaning Order'); ?></dt>

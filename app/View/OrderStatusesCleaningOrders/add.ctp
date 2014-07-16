@@ -5,7 +5,6 @@
 	<?php
 		echo $this->Form->input('order_status_id');
 		echo $this->Form->input('cleaning_order_id');
-		echo $this->Form->input('time_updated');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

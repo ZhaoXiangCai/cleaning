@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('content');
-		echo $this->Form->input('timestamp');
+		echo $this->Form->input('created');
 		echo $this->Form->input('cleaning_order_id');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('comment_type_id');

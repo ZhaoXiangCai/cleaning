@@ -5,7 +5,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('content'); ?></th>
-			<th><?php echo $this->Paginator->sort('timestamp'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('cleaning_order_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('comment_type_id'); ?></th>
@@ -17,7 +17,7 @@
 	<tr>
 		<td><?php echo h($comment['Comment']['id']); ?>&nbsp;</td>
 		<td><?php echo h($comment['Comment']['content']); ?>&nbsp;</td>
-		<td><?php echo h($comment['Comment']['timestamp']); ?>&nbsp;</td>
+		<td><?php echo h($comment['Comment']['created']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($comment['CleaningOrder']['id'], array('controller' => 'cleaning_orders', 'action' => 'view', $comment['CleaningOrder']['id'])); ?>
 		</td>

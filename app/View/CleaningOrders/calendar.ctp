@@ -2,7 +2,7 @@
 echo $this -> Html -> css(array('/css/fullcalendar/fullcalendar'));
 ?>
 <?php 
-debug($tasks); 
+// debug($tasks); 
 ?>
 <script type='text/javascript'>
 
@@ -25,7 +25,7 @@ debug($tasks);
         $(this).css('border-color', 'red');
 
         },
-            editable: true,
+            editable: false,
             events: [
 
         <?php foreach ($tasks as $task){ 
@@ -46,7 +46,11 @@ debug($tasks);
             url:
                 <?php echo " " . "'/cleaning/cleaning_orders/edit/" . $task['CleaningOrder']['id'] . "'"; ?>
             ,
-                            <?php echo "},";
+            color:
+                <?php echo " " . "'" . $task['Color']['name'] . "'";?>
+            ,
+            allDay:false
+            ,               <?php echo "},";
             }
  ?>
         

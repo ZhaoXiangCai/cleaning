@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Comment'); ?></legend>
 	<?php
 		echo $this->Form->input('content');
-		echo $this->Form->input('timestamp');
+		echo $this->Form->input('created');
 		echo $this->Form->input('cleaning_order_id');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('comment_type_id');

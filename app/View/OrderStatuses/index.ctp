@@ -5,7 +5,6 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('color'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -14,7 +13,6 @@
 	<tr>
 		<td><?php echo h($orderStatus['OrderStatus']['id']); ?>&nbsp;</td>
 		<td><?php echo h($orderStatus['OrderStatus']['name']); ?>&nbsp;</td>
-		<td><?php echo h($orderStatus['OrderStatus']['color']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $orderStatus['OrderStatus']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $orderStatus['OrderStatus']['id'])); ?>

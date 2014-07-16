@@ -6,7 +6,6 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('order_status_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('cleaning_order_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('time_updated'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -20,7 +19,6 @@
 		<td>
 			<?php echo $this->Html->link($orderStatusesCleaningOrder['CleaningOrder']['id'], array('controller' => 'cleaning_orders', 'action' => 'view', $orderStatusesCleaningOrder['CleaningOrder']['id'])); ?>
 		</td>
-		<td><?php echo h($orderStatusesCleaningOrder['OrderStatusesCleaningOrder']['time_updated']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $orderStatusesCleaningOrder['OrderStatusesCleaningOrder']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $orderStatusesCleaningOrder['OrderStatusesCleaningOrder']['id'])); ?>

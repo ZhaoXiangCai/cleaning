@@ -17,10 +17,6 @@
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Time Updated'); ?></dt>
-		<dd>
-			<?php echo h($orderStatusesCleaningOrder['OrderStatusesCleaningOrder']['time_updated']); ?>
-			&nbsp;
-		</dd>
 	</dl>
 </div>
 <div class="actions">

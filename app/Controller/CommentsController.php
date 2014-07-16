@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * Comments Controller
  *
@@ -38,7 +39,10 @@ class CommentsController extends AppController {
 		}
 		$options = array('conditions' => array('Comment.' . $this->Comment->primaryKey => $id));
 		$this->set('comment', $this->Comment->find('first', $options));
+
 	}
+    
+
 
 /**
  * add method
@@ -47,6 +51,7 @@ class CommentsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+		    
 			$this->Comment->create();
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved.'));

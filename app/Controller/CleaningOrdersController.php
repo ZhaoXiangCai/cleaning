@@ -1,5 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('Folder', 'Utility');
+App::uses('File', 'Utility');
 /**
  * CleaningOrders Controller
  *
@@ -25,6 +27,13 @@ class CleaningOrdersController extends AppController {
         $this -> CleaningOrder -> recursive = 0;
         $this -> set('cleaningOrders', $this -> Paginator -> paginate());
     }
+        
+    public function getpics($id = null){
+        $dir = new Folder('./img/orders/');
+        $dir->cd($id);
+        $files = $dir->find('.*',true);
+        return $files;
+    }
 
     /**
      * view method
@@ -37,9 +46,20 @@ class CleaningOrdersController extends AppController {
         if (!$this -> CleaningOrder -> exists($id)) {
             throw new NotFoundException(__('Invalid cleaning order'));
         }
+        $this->loadModel('Comment');
+        $this->loadModel('CommentType');
+        $this->set('comments',$this->Comment->find('all',array('conditions'=>array('Comment.cleaning_order_id'=>$id), 'order'=>'Comment.created DESC')));
         $options = array('conditions' => array('CleaningOrder.' . $this -> CleaningOrder -> primaryKey => $id));
         $this -> set('cleaningOrder', $this -> CleaningOrder -> find('first', $options));
+        $this -> set('users', $this -> CleaningOrder -> Added_by -> find('list', array('fields' => array('username'))));
+        $this -> set('commentTypes',$this->CommentType->find('list'));
+                
+        // $pics = getpics();
+        debug($this->getpics($id));
+        $this -> set('pics',$this->getpics($id));
     }
+
+
 
     /**
      * add method
@@ -58,7 +78,7 @@ class CleaningOrdersController extends AppController {
                 }
             }
             $teams = $this -> CleaningOrder -> Team -> find('list');
-            $colors = $this -> CleaningOrder -> Color -> find('list');
+            $colors = $this -> CleaningOrder -> Color -> find('list',array('order'=>'name ASC'));
             $clients = $this -> CleaningOrder -> Client -> find('list');
             $companies = $this -> CleaningOrder -> Company -> find('list', array('fields' => array('brand_url')));
             $services = $this -> CleaningOrder -> Service -> find('list');
@@ -82,7 +102,7 @@ class CleaningOrdersController extends AppController {
             $tempArray = array($clients['Client']['name']);
             $clients = $tempArray;
             $teams = $this -> CleaningOrder -> Team -> find('list');
-            $colors = $this -> CleaningOrder -> Color -> find('list');
+            $colors = $this -> CleaningOrder -> Color -> find('list',array('order'=>'name ASC'));
             //$clients = $this -> CleaningOrder -> Client -> find('list');
             $companies = $this -> CleaningOrder -> Company -> find('list', array('fields' => array('brand_url')));
             $services = $this -> CleaningOrder -> Service -> find('list');
@@ -123,12 +143,13 @@ class CleaningOrdersController extends AppController {
             $this -> request -> data = $this -> CleaningOrder -> find('first', $options);
         }
         $teams = $this -> CleaningOrder -> Team -> find('list');
+        $colors = $this -> CleaningOrder -> Color -> find('list',array('order'=>'name ASC'));
         $clients = $this -> CleaningOrder -> Client -> find('list');
         $companies = $this -> CleaningOrder -> Company -> find('list', array('fields' => array('brand_url')));
         $services = $this -> CleaningOrder -> Service -> find('list');
         $users = $this -> CleaningOrder -> Added_by -> find('list', array('fields' => array('username'), ));
         $orderStatuses = $this -> CleaningOrder -> OrderStatus -> find('list');
-        $this -> set(compact('teams', 'clients', 'companies', 'services', 'orderStatuses', 'users'));
+        $this -> set(compact('teams', 'colors', 'clients', 'companies', 'services', 'orderStatuses', 'users'));
     }
 
     /**
