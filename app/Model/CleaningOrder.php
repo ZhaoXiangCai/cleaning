@@ -28,6 +28,14 @@ class CleaningOrder extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'pastDate' => array( 
+                'rule' => array('pastDate', 'appointment_time_from' ), 
+                'message' => 'The start date must not be in the past'
+            ),
+            'startBeforeEnd' => array( 
+                'rule' => array('startBeforeEnd', 'appointment_time_to' ), 
+                'message' => 'The start time must be before the end time.'
+            ),                
 		),
 		'appointment_time_to' => array(
 			'datetime' => array(
@@ -60,6 +68,30 @@ class CleaningOrder extends AppModel {
 			),
 		),
 	);
+    
+    function startBeforeEnd( $field=array(), $compare_field=null ) { 
+        foreach( $field as $key => $value ){ 
+            $v1 = $value; 
+            $v2 = $this->data[$this->name][ $compare_field ]; 
+            if($v1 > $v2) { 
+                    return FALSE; 
+            } else { 
+                    continue; 
+            } 
+        } 
+        return TRUE; 
+    }
+        
+    function pastDate( $field=array()){
+        foreach( $field as $key => $value ){
+            $v3 = $value;
+            if (strtotime($v3) > strtotime(date('Y-m-d H:i:s')) || strtotime($v3) == strtotime(date('Y-m-d H:i:s'))){
+                debug($v3);
+                return TRUE; 
+            } 
+            return False; 
+        }
+    }
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

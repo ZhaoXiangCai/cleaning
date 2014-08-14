@@ -78,7 +78,20 @@
 		</dd>
 	</dl>
 	</br>
-	<!-- <?php echo $pics; ?> -->
+	<div>
+	    <h3>Uploaded Pictures:</br></h3>
+	    <?php foreach ($pics as $pic) {
+            echo $this->Html->image('./orders/'.$id.'/'.$pic);			
+		} ?>
+	</div>
+	<div>
+	    <h3>Upload New files:</br></h3>
+	    <?php
+            echo $this->Form->create('CleaningOrder', array('controller' => 'cleaning_orders', 'action' => 'addimage','enctype' => 'multipart/form-data','url' => array($id)));
+            echo $this->Form->File('order_pic',array('label' => array('text' => 'Pictures'), 'type' => 'file'));
+            echo $this -> Form -> end(__('Submit'));
+	    ?>
+	</div> 
 	<div>
 <?php echo $this -> Form -> create('Comment', array('controller' => 'comments', 'action' => 'add')); ?>
     <h3>New Comment:</br></h3>

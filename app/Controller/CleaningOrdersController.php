@@ -31,7 +31,7 @@ class CleaningOrdersController extends AppController {
     public function getpics($id = null){
         $dir = new Folder('./img/orders/');
         $dir->cd($id);
-        $files = $dir->find('.*',true);
+        $files = $dir->find('.*\.(png|jpeg|jpg|gif)');
         return $files;
     }
 
@@ -55,8 +55,10 @@ class CleaningOrdersController extends AppController {
         $this -> set('commentTypes',$this->CommentType->find('list'));
                 
         // $pics = getpics();
-        debug($this->getpics($id));
-        $this -> set('pics',$this->getpics($id));
+        $pics = $this->getpics($id);
+        debug($pics);
+        $this -> set('pics',$pics);
+        $this -> set('id',$id);
     }
 
 
@@ -112,6 +114,13 @@ class CleaningOrdersController extends AppController {
             // $this->set('users', $this->CleaningOrder->Added_by->find('list'));
         }
 
+    }
+
+    public function addimage($id = null){
+        if ($this -> request -> is('post')) {
+            $fileOK = $this -> uploadFiles('img/orders/'.$id.'/', $this -> data['CleaningOrder']['order_pic']);
+            return $this -> redirect(array('action' => 'view',$id));
+        }
     }
 
     public function preadd() {
@@ -178,5 +187,12 @@ class CleaningOrdersController extends AppController {
             $tasks = $this->CleaningOrder->find('all');
             $this -> set('tasks',$tasks);
         }
+    }
+
+    public function getlastsevendays($userid = null){
+        //get team id
+        echo "sevendays";
+        // $teamid = $this -> query("select team.id from team,user where team.id = user.team_id");
+        //debug($teamid);
     }
 }
