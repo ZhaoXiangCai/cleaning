@@ -21,9 +21,9 @@
 			<?php echo h($cleaningOrder['CleaningOrder']['ordered_time']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Booked Time'); ?></dt>
+		<dt><?php echo __('Address'); ?></dt>
 		<dd>
-			<?php echo h($cleaningOrder['CleaningOrder']['booked_time']); ?>
+			<?php echo h($cleaningOrder['CleaningOrder']['address']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Order Price'); ?></dt>

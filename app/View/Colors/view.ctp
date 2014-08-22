@@ -33,7 +33,7 @@
 		<th><?php echo __('Appointment Time From'); ?></th>
 		<th><?php echo __('Appointment Time To'); ?></th>
 		<th><?php echo __('Ordered Time'); ?></th>
-		<th><?php echo __('Booked Time'); ?></th>
+		<th><?php echo __('Address'); ?></th>
 		<th><?php echo __('Order Price'); ?></th>
 		<th><?php echo __('Discount'); ?></th>
 		<th><?php echo __('Postcode Discount'); ?></th>
@@ -54,7 +54,7 @@
 			<td><?php echo $cleaningOrder['appointment_time_from']; ?></td>
 			<td><?php echo $cleaningOrder['appointment_time_to']; ?></td>
 			<td><?php echo $cleaningOrder['ordered_time']; ?></td>
-			<td><?php echo $cleaningOrder['booked_time']; ?></td>
+			<td><?php echo $cleaningOrder['address']; ?></td>
 			<td><?php echo $cleaningOrder['order_price']; ?></td>
 			<td><?php echo $cleaningOrder['discount']; ?></td>
 			<td><?php echo $cleaningOrder['postcode_discount']; ?></td>

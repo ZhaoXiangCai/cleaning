@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('appointment_time_from'); ?></th>
 			<th><?php echo $this->Paginator->sort('appointment_time_to'); ?></th>
 			<th><?php echo $this->Paginator->sort('ordered_time'); ?></th>
-			<th><?php echo $this->Paginator->sort('booked_time'); ?></th>
+			<th><?php echo $this->Paginator->sort('address'); ?></th>
 			<th><?php echo $this->Paginator->sort('order_price'); ?></th>
 			<th><?php echo $this->Paginator->sort('discount'); ?></th>
 			<th><?php echo $this->Paginator->sort('postcode_discount'); ?></th>
@@ -29,7 +29,7 @@
 		<td><?php echo h($cleaningOrder['CleaningOrder']['appointment_time_from']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['appointment_time_to']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['ordered_time']); ?>&nbsp;</td>
-		<td><?php echo h($cleaningOrder['CleaningOrder']['booked_time']); ?>&nbsp;</td>
+		<td><?php echo h($cleaningOrder['CleaningOrder']['address']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['order_price']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['discount']); ?>&nbsp;</td>
 		<td><?php echo h($cleaningOrder['CleaningOrder']['postcode_discount']); ?>&nbsp;</td>

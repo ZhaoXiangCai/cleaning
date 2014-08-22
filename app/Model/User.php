@@ -109,5 +109,26 @@ class User extends AppModel {
         }
         return true;
     }
-
+    
+    
+/**
+ * hasAndBelongsToMany associations
+ *
+ * @var array
+ */
+    public $hasAndBelongsToMany = array(
+        'CleaningOrder' => array(
+            'className' => 'CleaningOrder',
+            'joinTable' => 'commissions',
+            'foreignKey' => 'user_id',
+            'associationForeignKey' => 'cleaning_order_id',
+            'unique' => 'keepExisting',
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'finderQuery' => '',
+        )
+    );
 }

@@ -16,7 +16,7 @@ if (AuthComponent::user('role_id') != '3' ){
             <th>Appointment Time</th>
             <th>Total price</th>
             <th>Client Address</th>
-            <th>Commision Rate</th>
+            <th>Commission Rate</th>
     </tr>
     </thead>
     <tbody>
@@ -26,12 +26,12 @@ if (AuthComponent::user('role_id') != '3' ){
         <td><?php echo h($order['cleaning_orders']['appointment_time_from']); ?>&nbsp;</td>
         <td><?php echo h($order['cleaning_orders']['order_price']); ?>&nbsp;</td>
         <td><?php echo h($order['clients']['address']); ?>&nbsp;</td>
-        <td><?php echo h($order['commisions']['rate']); ?>&nbsp;</td>
+        <td><?php echo h($order['commissions']['rate']); ?>&nbsp;</td>
         
     </tr>
 <?php endforeach; ?>
     </tbody>
     </table>
 <?php } ?>
-Total order price or price*commision rate?</br>
+Total order price or price*commission rate?</br>
 <?php echo $this -> Html -> link('Log out', array('controller' => 'users', 'action' => 'logout')); ?>

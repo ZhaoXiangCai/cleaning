@@ -116,8 +116,8 @@ class PagesController extends AppController {
         //debug($id);
         $result = $this -> CleaningOrder -> query("select teams.id from teams,users where teams.id = users.team_id and users.id = $userid");
         $teamid = $result[0]['teams']['id'];
-        $result = $this -> CleaningOrder -> query("select appointment_time_from,order_price,rate,clients.address from clients,users,commisions,cleaning_orders where users.id = commisions.user_id 
-                                                        and cleaning_orders.id = commisions.cleaning_order_id
+        $result = $this -> CleaningOrder -> query("select appointment_time_from,order_price,rate,clients.address from clients,users,commissions,cleaning_orders where users.id = commissions.user_id 
+                                                        and cleaning_orders.id = commissions.cleaning_order_id
                                                         and clients.id = cleaning_orders.client_id
                                                         and users.id = $userid
                                                         and DATEDIFF(NOW(),appointment_time_from)>7");

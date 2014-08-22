@@ -7,7 +7,7 @@
 		echo $this->Form->input('appointment_time_from');
 		echo $this->Form->input('appointment_time_to');
 		echo $this->Form->input('ordered_time');
-		echo $this->Form->input('booked_time');
+		echo $this->Form->input('address');
 		echo $this->Form->input('order_price');
 		echo $this->Form->input('discount');
 		echo $this->Form->input('postcode_discount');

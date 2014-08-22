@@ -1,3 +1,4 @@
+
 <div class="orderStatusesCleaningOrders index">
 	<h2><?php echo __('Order Statuses Cleaning Orders'); ?></h2>
 	<table cellpadding="0" cellspacing="0">

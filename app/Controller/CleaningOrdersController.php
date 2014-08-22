@@ -69,6 +69,9 @@ class CleaningOrdersController extends AppController {
      * @return void
      */
     public function add($clientId = null) {
+        $this->loadModel('User');
+        $this->loadModel('Commission');
+        $this->loadModel('Client');
         if (is_null($clientId)) {
             if ($this -> request -> is('post')) {
                 $this -> CleaningOrder -> create();
@@ -80,6 +83,7 @@ class CleaningOrdersController extends AppController {
                 }
             }
             $teams = $this -> CleaningOrder -> Team -> find('list');
+            
             $colors = $this -> CleaningOrder -> Color -> find('list',array('order'=>'name ASC'));
             $clients = $this -> CleaningOrder -> Client -> find('list');
             $companies = $this -> CleaningOrder -> Company -> find('list', array('fields' => array('brand_url')));
@@ -91,7 +95,21 @@ class CleaningOrdersController extends AppController {
         } else {
             if ($this -> request -> is('post')) {
                 $this -> CleaningOrder -> create();
+                $this -> request -> data['CleaningOrder']['client_id'] = $clientId;
                 if ($this -> CleaningOrder -> save($this -> request -> data)) {
+                    $users = $this->User->query("select id from users where team_id = ".$this -> request -> data['CleaningOrder']['team_id']);
+                    foreach($users as $user){
+                        $this->Commission->create();
+                        if($this->Commission->save(array(
+                        'user_id'=>$user['users']['id'],
+                        'cleaning_order_id'=>$this->CleaningOrder->getLastInsertId(),
+                        'rate'=>0.1
+                        ))){
+                            //$this -> Session -> setFlash(__('The commissions have been saved.'));
+                        }else{
+                            //$this -> Session -> setFlash(__('The commissions could not been saved.'));
+                        }
+                    }
                     $this -> Session -> setFlash(__('The cleaning order has been saved.'));
                     return $this -> redirect(array('action' => 'index'));
                 } else {
@@ -100,6 +118,7 @@ class CleaningOrdersController extends AppController {
             }
             $this->CleaningOrder->Client->id = $clientId;
             $this->Client->id = $clientId;
+            $addressesClient = $this->CleaningOrder->query("select address from clients where id=".$clientId);
             $clients = $this->Client->find('first',array('conditions'=>array('Client.id'=>$clientId),'fields'=>array('Client.name')));           
             $tempArray = array($clients['Client']['name']);
             $clients = $tempArray;
@@ -110,8 +129,11 @@ class CleaningOrdersController extends AppController {
             $services = $this -> CleaningOrder -> Service -> find('list');
             $users = $this -> CleaningOrder -> Added_by -> find('list', array('fields' => array('username')));
             $orderStatuses = $this -> CleaningOrder -> OrderStatus -> find('list');
-            $this -> set(compact('teams','colors', 'clients','companies', 'services', 'orderStatuses', 'users'));
+            $this -> set(compact('addressesClient','teams','colors', 'clients','companies', 'services', 'orderStatuses', 'users'));
+            
             // $this->set('users', $this->CleaningOrder->Added_by->find('list'));
+            
+            
         }
 
     }

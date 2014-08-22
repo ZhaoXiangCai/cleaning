@@ -57,16 +57,6 @@ class CleaningOrder extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'booked_time' => array(
-			'datetime' => array(
-				'rule' => array('datetime'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 	);
     
     function startBeforeEnd( $field=array(), $compare_field=null ) { 
@@ -205,7 +195,20 @@ class CleaningOrder extends AppModel {
 			'limit' => '',
 			'offset' => '',
 			'finderQuery' => '',
-		)
+		),
+		'User' => array(
+            'className' => 'User',
+            'joinTable' => 'commissions',
+            'foreignKey' => 'cleaning_order_id',
+            'associationForeignKey' => 'user_id',
+            'unique' => 'keepExisting',
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'finderQuery' => '',
+        )
 	);
 
 }

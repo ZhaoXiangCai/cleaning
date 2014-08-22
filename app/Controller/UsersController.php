@@ -102,6 +102,12 @@ class UsersController extends AppController {
         $roles = $this -> User -> Role -> find('list');
         $this -> set(compact('roles'));
     }
+    
+    public function commission($id = null) {
+        if (!$this -> User -> exists($id)) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+    }
 
     /**
      * delete method
