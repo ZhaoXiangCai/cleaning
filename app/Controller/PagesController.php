@@ -53,7 +53,7 @@ class PagesController extends AppController {
             $this -> set('numofunpaid', $this -> getnumofunpaid());
             $this -> set('numofupcoming', $this -> getnumofupcoming());
         } else {
-            $this -> set('orders', $this -> getsevendaysorder());
+            $this -> set('numofupcoming', $this -> getnumofupcoming());
         }
 
         $path = func_get_args();
@@ -63,7 +63,6 @@ class PagesController extends AppController {
             return $this -> redirect('/');
         }
         $page = $subpage = $title_for_layout = null;
-
         if (!empty($path[0])) {
             $page = $path[0];
         }
@@ -106,7 +105,13 @@ class PagesController extends AppController {
 
     public function getnumofupcoming() {
         $this -> loadModel('CleaningOrder');
-        $result = $this -> CleaningOrder -> query("select count(*) from cleaning.cleaning_orders where appointment_time_from > NOW()");
+        if(AuthComponent::user('role_id')!=3){
+            $result = $this -> CleaningOrder -> query("select count(*) from cleaning.cleaning_orders where appointment_time_from > NOW()");
+        } else {
+            $teamid = $this -> CleaningOrder -> query("select team_id from users where id = " . AuthComponent::user('id'));
+            $team = $teamid[0]['users']['team_id'];
+            $result = $this -> CleaningOrder -> query("select count(*) from cleaning.cleaning_orders where appointment_time_from > NOW() and team_id = $team");
+        }
         return $result[0][0]['count(*)'];
     }
     
@@ -120,7 +125,7 @@ class PagesController extends AppController {
                                                         and cleaning_orders.id = commissions.cleaning_order_id
                                                         and clients.id = cleaning_orders.client_id
                                                         and users.id = $userid
-                                                        and DATEDIFF(NOW(),appointment_time_from)>7");
+                                                        and DATEDIFF(NOW(),appointment_time_from)<=7");
         return $result;
     }
 

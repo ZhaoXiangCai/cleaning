@@ -1,5 +1,7 @@
-<div class="companies index">
 	<h2><?php echo __('Companies'); ?></h2>
+	<ul class="list-inline">
+        <li><?php echo $this->Html->link(__('New Company'), array('action' => 'add'),array('class'=>'btn btn-primary')); ?></li>
+    </ul>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -37,12 +39,3 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Company'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Cleaning Orders'), array('controller' => 'cleaning_orders', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
-	</ul>
-</div>

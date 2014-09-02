@@ -44,7 +44,7 @@ echo $this -> Html -> css(array('/css/fullcalendar/fullcalendar'));
                 <?php echo " " . "'" . $task['CleaningOrder']['notes'] . "'"; ?>
             ,
             url:
-                <?php echo " " . "'/cleaning/cleaning_orders/edit/" . $task['CleaningOrder']['id'] . "'"; ?>
+                <?php echo " " . "'/cleaning/cleaning_orders/view/" . $task['CleaningOrder']['id'] . "'"; ?>
             ,
             color:
                 <?php echo " " . "'" . $task['Color']['name'] . "'";?>
@@ -71,21 +71,15 @@ echo $this -> Html -> css(array('/css/fullcalendar/fullcalendar'));
 
 	<body>
 
-		<div align="left">
-
 			<h2>Calendar</h2>
-		</div>
+
 		<br>
 
-		<div class="row form">
-			<div class="twelve mobile-twelve columns">
+			<div>
 				<div id='calendaraa'></div>
 			</div>
-		</div>
 
-		<div class="actions">
-			asd
-		</div>
+
 	</body>
 </html>
 
