@@ -1,10 +1,5 @@
-<div>
+<div class="clients view">
 <h2><?php echo __('Client'); ?></h2>
-<ul class="list-inline">
-        <li><?php echo $this -> Html -> link(__('Edit Client'), array('action' => 'edit', $client['Client']['id']),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this -> Form -> postLink(__('Delete Client'), array('action' => 'delete', $client['Client']['id']),array('class'=>'btn btn-danger'), __('Are you sure you want to delete # %s?', $client['Client']['id'])); ?> </li>
-        <li><?php echo $this -> Html -> link(__('List Clients'), array('action' => 'index'),array('class'=>'btn btn-primary')); ?> </li>
-    </ul>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -53,17 +48,31 @@
 		</dd>
 		<dt><?php echo __('Client Type'); ?></dt>
 		<dd>
-			<?php echo $this -> Html -> link($client['ClientType']['name'], array('controller' => 'client_types', 'action' => 'view', $client['ClientType']['id'])); ?>
+			<?php echo $this->Html->link($client['ClientType']['name'], array('controller' => 'client_types', 'action' => 'view', $client['ClientType']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Ownership'); ?></dt>
 		<dd>
-			<?php echo $this -> Html -> link($client['Ownership']['name'], array('controller' => 'ownerships', 'action' => 'view', $client['Ownership']['id'])); ?>
+			<?php echo $this->Html->link($client['Ownership']['name'], array('controller' => 'ownerships', 'action' => 'view', $client['Ownership']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>
 </div>
-
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Edit Client'), array('action' => 'edit', $client['Client']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Client'), array('action' => 'delete', $client['Client']['id']), array(), __('Are you sure you want to delete # %s?', $client['Client']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Clients'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Client Types'), array('controller' => 'client_types', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Client Type'), array('controller' => 'client_types', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Ownerships'), array('controller' => 'ownerships', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Ownership'), array('controller' => 'ownerships', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Cleaning Orders'), array('controller' => 'cleaning_orders', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <div class="related">
 	<h3><?php echo __('Related Cleaning Orders'); ?></h3>
 	<?php if (!empty($client['CleaningOrder'])): ?>
@@ -96,6 +105,7 @@
 			<td><?php echo $cleaningOrder['order_price']; ?></td>
 			<td><?php echo $cleaningOrder['discount']; ?></td>
 			<td><?php echo $cleaningOrder['postcode_discount']; ?></td>
+			<td><?php echo $cleaningOrder['up_sale']; ?></td>
 			<td><?php echo $cleaningOrder['parking_type']; ?></td>
 			<td><?php echo $cleaningOrder['added_by']; ?></td>
 			<td><?php echo $cleaningOrder['team_id']; ?></td>
@@ -104,13 +114,18 @@
 			<td><?php echo $cleaningOrder['last_invoice_sent']; ?></td>
 			<td><?php echo $cleaningOrder['referrer']; ?></td>
 			<td class="actions">
-				<?php echo $this -> Html -> link(__('View'), array('controller' => 'cleaning_orders', 'action' => 'view', $cleaningOrder['id'])); ?>
-				<?php echo $this -> Html -> link(__('Edit'), array('controller' => 'cleaning_orders', 'action' => 'edit', $cleaningOrder['id'])); ?>
-				<?php echo $this -> Form -> postLink(__('Delete'), array('controller' => 'cleaning_orders', 'action' => 'delete', $cleaningOrder['id']), array(), __('Are you sure you want to delete # %s?', $cleaningOrder['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'cleaning_orders', 'action' => 'view', $cleaningOrder['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'cleaning_orders', 'action' => 'edit', $cleaningOrder['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'cleaning_orders', 'action' => 'delete', $cleaningOrder['id']), array(), __('Are you sure you want to delete # %s?', $cleaningOrder['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
 </div>

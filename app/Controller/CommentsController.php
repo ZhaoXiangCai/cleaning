@@ -53,11 +53,9 @@ class CommentsController extends AppController {
 		if ($this->request->is('post')) {
 		    
 			$this->Comment->create();
-            $id = $this -> request -> data['Comment']['cleaning_order_id'];
-            $this -> request -> data['Comment']['user_id'] = AuthComponent::user('id');
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved.'));
-				return $this->redirect(array('controller'=>'cleaningOrders','action' => 'view',$id));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
 			}

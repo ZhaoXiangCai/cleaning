@@ -1,12 +1,5 @@
-
+<div class="clients index">
 	<h2><?php echo __('Clients'); ?></h2>
-	<ul class="list-inline">
-        <li><?php echo $this->Html->link(__('New Client'), array('action' => 'add'),array('class'=>'btn btn-primary')); ?></li>
-        <li><?php echo $this->Html->link(__('New Client Type'), array('controller' => 'client_types', 'action' => 'add'),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this -> Html -> link(__('List Client Types'), array('controller' => 'client_types', 'action' => 'index'),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Ownership'), array('controller' => 'ownerships', 'action' => 'add'),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Ownership'), array('controller' => 'ownerships', 'action' => 'index'),array('class'=>'btn btn-primary')); ?> </li>
-    </ul>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -64,5 +57,16 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-
-
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Client'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Client Types'), array('controller' => 'client_types', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Client Type'), array('controller' => 'client_types', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Ownerships'), array('controller' => 'ownerships', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Ownership'), array('controller' => 'ownerships', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Cleaning Orders'), array('controller' => 'cleaning_orders', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
+	</ul>
+</div>

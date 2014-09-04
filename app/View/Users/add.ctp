@@ -1,4 +1,4 @@
-<div>
+<div class="users form">
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
@@ -11,12 +11,11 @@
 		echo $this->Form->input('address');
 		echo $this->Form->input('postcode');
 		echo $this->Form->input('role_id');
-        echo $this->Form->input('team_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
-<!-- <div class="actions">
+<div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
@@ -26,4 +25,4 @@
 		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
 	</ul>
-</div> -->
+</div>

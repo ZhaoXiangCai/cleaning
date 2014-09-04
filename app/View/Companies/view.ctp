@@ -1,11 +1,5 @@
-<div>
+<div class="companies view">
 <h2><?php echo __('Company'); ?></h2>
-<ul class="list-inline"">
-        <li><?php echo $this->Html->link(__('Edit Company'), array('action' => 'edit', $company['Company']['id']),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this->Form->postLink(__('Delete Company'), array('action' => 'delete', $company['Company']['id']),array('class'=>'btn btn-danger'), __('Are you sure you want to delete # %s?', $company['Company']['id'])); ?> </li>
-        <li><?php echo $this->Html->link(__('List Companies'), array('action' => 'index'),array('class'=>'btn btn-primary')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Company'), array('action' => 'add'),array('class'=>'btn btn-primary')); ?> </li>
-    </ul>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -24,7 +18,17 @@
 		</dd>
 	</dl>
 </div>
-
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Edit Company'), array('action' => 'edit', $company['Company']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Company'), array('action' => 'delete', $company['Company']['id']), array(), __('Are you sure you want to delete # %s?', $company['Company']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Companies'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Company'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Cleaning Orders'), array('controller' => 'cleaning_orders', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
 <div class="related">
 	<h3><?php echo __('Related Cleaning Orders'); ?></h3>
 	<?php if (!empty($company['CleaningOrder'])): ?>

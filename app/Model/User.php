@@ -99,20 +99,7 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Added' => array(
-            'className' => 'CleaningOrder',
-            'foreignKey' => 'added_by',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
-        )
+		)
 	);
 
     public function beforeSave($options = array()) {

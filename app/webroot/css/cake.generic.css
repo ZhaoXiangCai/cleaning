@@ -67,7 +67,7 @@ h4 {
 }
 ul, li {
 	margin: 0 12px;
-}d
+}
 p {
 	margin: 0 0 1em 0;
 }
@@ -236,7 +236,6 @@ table td.actions a {
 }
 
 /** Scaffold View **/
-/**
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
@@ -258,7 +257,7 @@ dd {
 	margin-top: -2em;
 	vertical-align: top;
 }
-**/
+
 /** Forms **/
 form {
 	clear: both;

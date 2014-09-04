@@ -19,7 +19,7 @@ echo $this -> Html -> css('jquery.dataTables');
 		});
 	}); 
 </script>
-<div>
+<div class="form">
 <h2><?php echo __('Clients'); ?></h2>
     <table id="js-datatable" cellpadding="0" cellspacing="0">
     <thead>
@@ -57,9 +57,6 @@ echo $this -> Html -> css('jquery.dataTables');
     </tr>
 <?php } ?>
 </tbody>
-    </table></br>
-    <?php echo $this -> Html -> link("Add New Client", array('controller' => 'clients', 'action' => 'add'), array('class' => 'btn btn-primary')); ?>
-
-    </div>
-
+    </table></br></div>
+    <div class="actions"><?php echo $this -> Html -> link("Add New Client", array('controller' => 'clients', 'action' => 'add'), array('class' => 'actions')); ?> </div>
     

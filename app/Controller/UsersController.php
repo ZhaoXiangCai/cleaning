@@ -74,9 +74,7 @@ class UsersController extends AppController {
             }
         }
         $roles = $this -> User -> Role -> find('list');
-        
-        $teams = $this -> User -> Team -> find('list');
-        $this -> set(compact('roles','teams'));
+        $this -> set(compact('roles'));
     }
 
     /**
@@ -102,8 +100,7 @@ class UsersController extends AppController {
             $this -> request -> data = $this -> User -> find('first', $options);
         }
         $roles = $this -> User -> Role -> find('list');
-        $teams = $this -> User -> Team -> find('list');
-        $this -> set(compact('roles','teams'));
+        $this -> set(compact('roles'));
     }
     
     public function commission($id = null) {
