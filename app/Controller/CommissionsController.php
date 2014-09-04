@@ -34,6 +34,12 @@ class CommissionsController extends AppController {
         $this -> Paginator -> settings = $this -> paginate;
         $this -> set('commissions', $this -> Paginator -> paginate('Commission', array('Commission.user_id = ' => $id)));
     }
+    
+    public function ordercommission($id = null) {
+        $this -> Commission -> recursive = 0;
+        $this -> Paginator -> settings = $this -> paginate;
+        $this -> set('commissions', $this -> Paginator -> paginate('Commission', array('Commission.cleaning_order_id = ' => $id)));
+    }
 
     /**
      * view method

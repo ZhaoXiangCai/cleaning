@@ -1,4 +1,4 @@
-<div class="users form">
+<div>
 <?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
@@ -10,5 +10,7 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
+<p class="text-left">
+<?php echo $this->Html->link('New Account', array('action'=>'add'),array('class'=>'btn btn-primary')); ?></p>
 </div>
-<?php echo $this->Html->link('New Account', array('action'=>'add')); ?>
+

@@ -1,5 +1,10 @@
-<div class="teams view">
 <h2><?php echo __('Team'); ?></h2>
+    <ul class="list-inline">
+        <li><?php echo $this->Html->link(__('Edit Team'), array('action' => 'edit', $team['Team']['id']),array('class'=>'btn btn-primary')); ?> </li>
+        <li><?php echo $this->Form->postLink(__('Delete Team'), array('action' => 'delete', $team['Team']['id']),array('class'=>'btn btn-danger'), __('Are you sure you want to delete # %s?', $team['Team']['id'])); ?> </li>
+        <li><?php echo $this->Html->link(__('List Teams'), array('action' => 'index'),array('class'=>'btn btn-primary')); ?> </li>
+        <li><?php echo $this->Html->link(__('New Team'), array('action' => 'add'),array('class'=>'btn btn-primary')); ?> </li>
+    </ul>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -32,18 +37,6 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Team'), array('action' => 'edit', $team['Team']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Team'), array('action' => 'delete', $team['Team']['id']), array(), __('Are you sure you want to delete # %s?', $team['Team']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Teams'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Team'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cleaning Orders'), array('controller' => 'cleaning_orders', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="related">
 	<h3><?php echo __('Related Cleaning Orders'); ?></h3>
 	<?php if (!empty($team['CleaningOrder'])): ?>
@@ -93,9 +86,4 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Cleaning Order'), array('controller' => 'cleaning_orders', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>

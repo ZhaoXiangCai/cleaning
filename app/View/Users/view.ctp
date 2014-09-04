@@ -1,6 +1,9 @@
-<?php debug($user['CleaningOrder']);?>
-<div class="users view">
+<div>
 <h2><?php echo __('User'); ?></h2>
+<ul class="list-inline">
+        <li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id']),array('class'=>'btn btn-primary')); ?> </li>
+        <li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), array('class'=>'btn btn-danger'), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+    </ul>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -15,11 +18,6 @@
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Password'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['password']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Email'); ?></dt>
@@ -47,20 +45,12 @@
 			<?php echo $this->Html->link($user['Role']['name'], array('controller' => 'roles', 'action' => 'view', $user['Role']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Team'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($user['Team']['name'], array('controller' => 'teams', 'action' => 'view', $user['Team']['id'])); ?>
+            &nbsp;
+        </dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), array(), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Comments'); ?></h3>
